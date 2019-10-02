@@ -544,6 +544,42 @@ if ( ! class_exists( 'UR_Admin_Menus', false ) ) :
 			<?php
 		}
 
+		/**
+		 * Output Field options.
+		 *
+		 * @param obj $form_data Form post data.
+		 */
+		private function get_field_options( $form_data ) {
+			if ( ! empty( $form_data ) ) {
+				try {
+					$form_data_array = json_decode( $form_data->post_content );
+					if ( json_last_error() != JSON_ERROR_NONE ) {
+						throw new Exception( '' );
+					}
+				} catch ( Exception $e ) {
+					$form_data_array = array();
+				}
+
+				foreach ( $form_data_array as $rows ) {
+					foreach ( $rows as $grids ) {
+						foreach ( $grids as $single_field ) {
+							$admin_field = $this->get_admin_field( $single_field );
+							?>
+							<div class="ur-field-options" data-field_name="<?php echo esc_html( $single_field->general_setting->field_name ); ?>" >
+								<?php echo $admin_field['settings']; // @codingStandardsIgnoreLine ?>
+							</div>
+							<?php
+						}
+					}
+				}
+			}
+		}
+
+		/**
+		 * Output edit form fields.
+		 *
+		 * @param obj $form_data Form post data.
+		 */
 		private function get_edit_form_field( $form_data ) {
 
 			if ( ! empty( $form_data ) ) {

@@ -75,7 +75,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 										<?php do_action( 'user_registration_extra_fields' ); ?>
 									</div>
 									<div id="ur-tab-field-options" class="ur-tab-content">
-
+										<?php
+										if ( ! empty( $form_data ) ) {
+											$this->get_field_options( $form_data );
+										}
+										?>
 									</div>
 									<div id="ur-tab-field-settings" class="ur-tab-content">
 

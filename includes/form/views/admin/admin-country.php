@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $instance = UR_Form_Field_Country::get_instance();
 ?>
-<div class="ur-input-type-country ur-admin-template">
+<div class="ur-input-type-country ur-admin-template" date-field_name="<?php echo esc_html( $this->get_general_setting_data( 'field_name' ) ); ?>">
 	<div class="ur-label">
 		<label><?php echo esc_html( $this->get_general_setting_data( 'label' ) ); ?></label>
 	</div>
@@ -25,4 +25,3 @@ $instance = UR_Form_Field_Country::get_instance();
 		</select>
 	</div>
 </div>
-
