@@ -82,6 +82,15 @@ if ( ! class_exists( 'UR_Settings_General' ) ) :
 						'options'  => ur_login_option(),
 					),
 					array(
+						'title'    => __( 'Enable  same username  ', 'user-registration' ),
+						'desc'     => __( 'Check to enable same username.', 'user-registration' ),
+						'id'       => 'user_registration_login_option_allow_same_username',
+						'type'     => 'checkbox',
+						'desc_tip' => true,
+						'css'      => 'min-width: 350px;',
+						'default'  => 'no',
+					),
+					array(
 						'title'    => __( 'Prevent dashboard access', 'user-registration' ),
 						'desc'     => __( 'This option lets you limit which roles you are willing to prevent dashboard access.', 'user-registration' ),
 						'id'       => 'user_registration_general_setting_disabled_user_roles',

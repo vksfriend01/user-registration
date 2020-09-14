@@ -50,13 +50,15 @@ class UR_Form_Field_User_Login extends UR_Form_Field {
 	public function validation( $single_form_field, $form_data, $filter_hook, $form_id ) {
 		$username = isset( $form_data->value ) ? $form_data->value : '';
 
-		if ( username_exists( $username ) ) {
-			add_filter(
-				$filter_hook,
-				function ( $msg ) {
-					return __( 'Username already exists.', 'user-registration' );
-				}
-			);
+		if (get_option('user_registration_login_option_allow_same_username')=='no'){
+			if ( username_exists( $username ) ) {
+				add_filter(
+					$filter_hook,
+					function ( $msg ) {
+						return __( 'Username already exists.', 'user-registration' );
+					}
+				);
+			}
 		}
 
 		$status = validate_username( $username );
