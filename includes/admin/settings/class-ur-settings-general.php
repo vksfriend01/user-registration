@@ -102,6 +102,15 @@ if ( ! class_exists( 'UR_Settings_General' ) ) :
 						'default'  => 'no',
 					),
 					array(
+						'title'    => __( 'Enable use of special characters in username', 'user-registration' ),
+						'desc'     => __( 'Check to enable use of special characters in username.', 'user-registration' ),
+						'id'       => 'user_registration_login_option_allow_special_character_in_username',
+						'type'     => 'checkbox',
+						'desc_tip' => true,
+						'css'      => 'min-width: 350px;',
+						'default'  => 'no',
+					),
+					array(
 						'title'    => __( 'Uninstall Option', 'user-registration' ),
 						'desc'     => __( 'Heads Up! Check this if you would like to remove ALL User Registration data upon plugin deletion.', 'user-registration' ),
 						'id'       => 'user_registration_general_setting_uninstall_option',

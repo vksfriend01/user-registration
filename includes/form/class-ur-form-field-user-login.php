@@ -59,6 +59,16 @@ class UR_Form_Field_User_Login extends UR_Form_Field {
 			);
 		}
 
+		if( get_option('user_registration_login_option_allow_special_character_in_username') == 'no' ){
+			if ( preg_match("/[^a-zA-Z\d]/", $username ) ) {
+				 add_filter( $filter_hook, 
+					 function ( $msg ) use ( $username ) {
+					   return __('Username cannot have special characters.', 'user-registration');
+					}
+				);
+			}
+		}
+
 		$status = validate_username( $username );
 
 		if ( ! $status ) {
