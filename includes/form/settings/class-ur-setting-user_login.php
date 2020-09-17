@@ -41,7 +41,22 @@ class UR_Setting_User_login extends UR_Field_Settings {
 				'placeholder' => __( 'Custom Class', 'user-registration' ),
 				'tip'         => __( 'Class name to embed in this field.', 'user-registration' ),
 			),
-		);
+		    'same_username'    => array(
+			'type'     => 'select',
+			'data-id'  => $this->field_id . '_same_username',
+			'label'    => __( 'Enable Same UserName', 'user-registration' ),
+			'name'     => $this->field_id . '[same_username]',
+			'class'    => $this->default_class . ' ur-settings-same-username',
+			'default'  => 'false',
+			'required' => false,
+			'options'  => array(
+				'true'  => 'Yes',
+				'false' => 'No',
+			),
+			'tip'      => __( 'Enable same username.', 'user-registration' ),
+		),
+	);
+	
 
 		$this->render_html( $fields );
 	}
